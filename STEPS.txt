@@ -1,0 +1,80 @@
+Pre-requisites for Junit
+- Java or jdk to be installed
+- netbeans version 17 or latest
+- Hamcrest & Junit Jar files
+
+Steps for Junit
+- Open NetBeans
+- File > newProject > Java With Ant > Java Class Library
+  Project name > right click on source package add class     
+  file as DemoJunit
+- Right click on librarirs >  Add jar/folder
+- Add junit & hemcrest files
+- In DemoJunit Write code 
+- From projects > right click and click on tools create/Update test
+- Change values of int number
+
+Example:
+public class NewClass {
+    public boolean isDivisibleByThreeAndFive(int number) {
+        return number % 3 == 0 && number % 5 == 0;
+    }
+}
+
+
+Selenium:
+Pre-requisites for Selenium
+- Java or jdk to be installed
+- netbeans version 17 or latest
+- Check version of browser
+- Use jar version of selenium as 4.8.3
+- Add chrome driver
+
+Steps for Selenium:
+- Open NetBeans
+- File > newProject > Java With Ant > Java Application
+  Project name > right click on source package add new package as   
+  seleniumdemo
+- Right click on libraries >  Add jar/folder
+- Add Selenium jar files (except lib)
+- Again right click on libraries > Add jar/folder
+- Add jar files from lib
+- Create a new class named your id
+
+
+Example:
+package selenium.demo;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class Scenario_01 {
+
+    public static void main(String[] args) throws InterruptedException {
+        //variable declation for checking pageTitle
+        String pageTitle;
+        //setting property for webdriver
+        System.setProperty("webdriver.chrome.driver", "D:\\chromedriver.exe");
+        EdgeDriver ed = new EdgeDriver();
+        ed.manage().window().maximize(); //maximising broswers window
+        //Getting url
+        ed.get("https://charusat.edu.in:912/eGovernance/");
+        pageTitle = ed.getTitle();
+        System.out.println("Title of page is " + pageTitle);
+        //Comparing title
+        if (pageTitle.equalsIgnoreCase("CHARUSAT")) {
+            System.out.println("Page title matches 'CHARUSAT'");
+        } else {
+            System.out.println("Page title does not match 'INFORMATION TECHNOLOGY'");
+        }
+        Thread.sleep(3000);
+       
+        //printing the title of article
+        System.out.println(ed.getTitle());
+        ed.quit();
+
+    }
+
+}
+

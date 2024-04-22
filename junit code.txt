@@ -1,0 +1,261 @@
+pincode:
+public String Checkpin(int pin)
+    {
+        if(pin <=0)
+        {
+            return "Invaild Pincode";
+        }    
+        else if(Integer.toString(pin).length() > 6)
+        {
+              return "Invaild Pincode";
+        }
+        else
+        {
+            return Integer.toString(pin);
+        }
+    }
+
+
+public String CheckPin(int pin){
+        if(pin<0)
+            return "Negative number not allowed";
+        String pincode =Integer.toString(pin);
+        if(pincode.length()<6 || pincode.length()>6){
+            return "Pincode length must be 6 Digit";
+        }
+        else{
+            return pincode;
+        }
+    }
+
+calculator
+public String cal(int a, int b ,char  opr)
+    {
+        switch (opr) {
+            case '+':
+                if(valid(a,b))
+                {
+                    return Integer.toString(a+b);
+                }
+                else
+                    return "Enter Valid number";
+            case '-':
+                if(valid(a,b))
+                {
+                    return Integer.toString(a-b);
+                }
+                else
+                    return "Enter Valid number";
+            case '*':
+                if(valid(a,b))
+                {
+                    return Integer.toString(a*b);
+                }
+                else
+                    return "Enter Valid number";
+            case '/':
+                if(valid(a,b))
+                {
+                    if(b!=0)
+                        return Float.toString(a/b);
+                    else
+                        return "Cannot Divide Number By Zero";
+                }
+                else
+                    return "Enter Valid number";
+            default:
+                break;
+        }
+        return null;
+    }
+    public boolean valid(int a, int b)
+    {
+        if(a<0 || b<0)
+        {
+            return false;
+        }
+        return true;
+    }
+
+
+Search:
+public  String search(int element,int a[]) {
+    String index="-1";
+    if (a == null || a.length == 0) {
+            throw new IllegalArgumentException("Array is empty");
+        }
+        for (int i = 0; i <=a.length; i++) {
+            if (a[i] == element) 
+            {
+                    index=String.valueOf(i);      
+            }
+        }
+        return index; // Number not found
+    }
+
+
+public int search(int target, int[] array)
+     {
+            if (array == null) {
+            throw new NullPointerException("Array is null");
+        }
+        if (array.length == 0) {
+            throw new IllegalArgumentException("Array is empty");
+        }
+
+ 
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == target) {
+                return i; // Number found, return its index
+            }
+        }
+ 
+        return -1; // Number not found
+    }
+
+Array index
+public int myArrayIndex(int element, int a[]) {
+        int index = -1;
+        try {
+            for (int i = 0; i <= a.length; i++) {
+                if (a[i] == element) {
+                    index = i;
+                }
+            }
+        } catch (Exception e) {
+            // Handle the exception
+             String index = "Array index out of bound";
+        }
+        catch (Exception e) {
+            // Handle the exception
+            String index = "Array is null";
+        }
+        return 0;
+    }
+
+public int myArrayIndex(int element, int a[]) {
+    try {
+        if (a == null) {
+            throw new NullPointerException("Array is null");
+        }
+ 
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] == element) {
+                return i; // Number found, return its index
+            }
+        }
+    } catch (ArrayIndexOutOfBoundsException e) {
+        System.out.println("Array index out of bounds");
+    } catch (NullPointerException e) {
+        System.out.println("Array is null");
+    }
+    return -1; // Number not found or other exception occurred
+}
+
+
+Array average:
+public String average(int min,int max,int[] arr)
+    {
+        int a[]=arr;
+        int sum=0;
+        int c=0;
+        double avg;
+        if(min>max)
+            return "Min Should be less than max";
+            try
+            {
+                for(int i :a)
+                {
+                    if(i>=min && i<=max)
+                    {
+                        sum=sum+i;
+                        c=c+1;
+                    }
+                }
+            }
+            catch(NullPointerException e)
+            {
+                return "Array is Null";
+            }
+            catch(ArrayIndexOutOfBoundsException e)
+            {
+                return "Index Out of Bounds";
+            }
+            catch(NumberFormatException e)
+            {
+                return "Enter Correct format";
+            }
+            catch(ArrayStoreException e)
+            {
+                return "Wrong Input format";
+            }
+            catch(Error e)   
+            {
+                return e.toString();
+            }
+            avg=sum/c;
+           if(c!=0)
+                return String.valueOf(avg);
+           else
+               return "Not Found";
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+char search
+public String Orr_char(String str,char c)
+    {
+        int count=0;
+        if(str.isEmpty() || Character.isSpaceChar(c))
+            return "Input is empty";
+        if(Character.isDigit(c))
+            return "Enter Correct Character";
+        str=str.strip();
+        try{
+                for (int i = 0; i < str.length(); i++) {
+                    char s = str.charAt(i);
+                     if (Character.isLetter(s)){
+                         if(s==c)
+                            {
+                                count++;
+                            }
+                     }
+                     else if(Character.isDigit(s))
+                               return "Enter Only String";
+        }
+        }
+        catch(StringIndexOutOfBoundsException e)
+        {
+            return "String Out OF bound";
+        }
+//        catch(ParseException e)
+//        {
+//            return "Enter Correct format";
+//        }
+        catch(Error e)
+        {
+            return "Error in code";
+        }
+        if(count!=0)
+            return String.valueOf(count);
+        else
+            return String.valueOf("Not Found");
+    }
+
+
+

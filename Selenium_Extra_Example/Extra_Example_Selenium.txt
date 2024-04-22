@@ -1,0 +1,156 @@
+package selenium.demo;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Scenario_01 {
+
+    public static void main(String[] args) throws InterruptedException {
+        //variable declation for checking pageTitle
+        String pageTitle;
+        //setting property for webdriver
+        System.setProperty("webdriver.chrome.driver", "D:\\chromedriver.exe");
+        FirefoxDriver fd = new FirefoxDriver();
+        fd.manage().window().maximize(); //maximising broswers window
+        //Getting url
+        fd.get("https://timesofindia.indiatimes.com/topic/information-technology");
+        pageTitle = fd.getTitle();
+        System.out.println("Title of page is " + pageTitle);
+        //Comparing title
+        if (pageTitle.equalsIgnoreCase("INFORMATION TECHNOLOGY")) {
+            System.out.println("Page title matches 'INFORMATION TECHNOLOGY'");
+        } else {
+            System.out.println("Page title does not match 'INFORMATION TECHNOLOGY'");
+        }
+        Thread.sleep(3000);
+        //opning article window
+        fd.findElement(By.id("Articles")).click();
+        Thread.sleep(2000);
+        //adding scroll effect
+        JavascriptExecutor js = (JavascriptExecutor) fd;
+        js.executeScript("window.scrollBy(0, 2500)");
+        Thread.sleep(3000);
+        //Opening the article
+        fd.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[2]/div/div[2]/div/div[2]/div/div/div/div[1]/div/div[14]/a/figure/div/img")).click();
+        Thread.sleep(2000);
+        //printing the title of article
+        System.out.println(fd.getTitle());
+        fd.quit();
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Question 02:
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package selenium.demo;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+/**
+ *
+ * @author Admin
+ */
+public class Scenario_02 {
+
+    public static void main(String[] args) throws InterruptedException {
+
+        //setting property for webdriver
+        System.setProperty("webdriver.chrome.driver", "D:\\chromedriver.exe");
+        FirefoxDriver fd = new FirefoxDriver();
+        fd.manage().window().maximize(); //maximising broswers window
+        //Getting url
+        fd.get("https://techcrunch.com/");
+        Thread.sleep(3000);
+        //opning article window
+        fd.findElement(By.xpath("//*[@id=\"root\"]/div/div/header/div/div[3]/ul[1]/li[4]/a")).click();
+        Thread.sleep(3000);
+
+        JavascriptExecutor js = (JavascriptExecutor) fd;
+        js.executeScript("window.scrollBy(0, 5000)");
+        Thread.sleep(3000);
+        fd.findElement(By.xpath("//span[text()='Load More']")).click();
+        Thread.sleep(3000);
+        System.out.println(fd.getTitle());
+        fd.quit();
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Question 03
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package selenium.demo;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+/**
+ *
+ * @author Admin
+ */
+public class Scenario_03 {
+    public static void main(String[] args) throws InterruptedException  {
+        //variable declation for checking pageTitle
+        String pageTitle;
+        //setting property for webdriver
+        System.setProperty("webdriver.chrome.driver", "D:\\chromedriver.exe");
+        EdgeDriver ed = new EdgeDriver();
+        ed.manage().window().maximize(); //maximising broswers window
+        //Getting url
+        ed.get("https://knowindia.india.gov.in/national-identity-elements/currency-symbol.php");
+        pageTitle = ed.getTitle();
+        System.out.println("Title of page is " + pageTitle);
+        //Comparing title
+        if (pageTitle.equalsIgnoreCase("INR Symbol")) {
+            System.out.println("Matched");
+        } else {
+            System.out.println("Unmatched");
+        }
+        Thread.sleep(3000);
+       
+        ed.quit();
+
+    }
+}
+
